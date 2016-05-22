@@ -129,6 +129,9 @@ div.pb-menu.pb ul li a:focus{
 }
 
 /* Slider */
+div.slider ul li div div.pb-text{
+	position: relative;
+}
 div.scrolling-mouse{
 	background: transparent url('images/mouse.gif') no-repeat center center;
 	margin-top: -70px;
@@ -137,6 +140,7 @@ div.scrolling-mouse{
 	height: 48px;
 	margin-left: 49%;
 	opacity: 0.5;
+	position: absolute;
 }
 div.scrolling-mouse a{
 	width: 32px;
@@ -214,6 +218,7 @@ div.h:after{
 }
 div.product-overlay hr{width:50%}
 div.product{
+	background-color: #f9f9f9 !important;
   	display: flex;              /* establish flex container */
     flex-direction: column;     /* stack flex items vertically */
     justify-content: center;    /* center items vertically, in this case */
@@ -346,7 +351,7 @@ div.footer-more hr{
 		padding-right: 5px !important;
 	}
 	div.products > ul{
-		margin-bottom: 30px !important;
+		padding-bottom: 30px !important;
 	}
 	div.products > ul li{
 		margin-bottom: 0px !important;
@@ -400,19 +405,19 @@ div.footer-more hr{
 		margin-top: 43px !important;
 	}
 	div#responsive-menu{
-		width: 50% !important;
+		width: 33% !important;
 		height: 150px !important;
 		border-radius: 30px;
 		margin-top: 132px !important;
 		padding-top: 0px !important;
-		left: 50% !important;
+		left: 66% !important;
 	}
 	div#responsive-menu ul > li.menu-item{
 		background-image: none !important;
 		padding-right: 15% !important;
 	}
 	div#responsive-menu ul.responsive-menu > li a{
-		font-size: 20px !important;
+		font-size: 16px !important;
 		width: auto !important;
 		margin-right: 15px;
 	}
