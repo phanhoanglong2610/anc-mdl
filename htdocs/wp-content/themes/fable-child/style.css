@@ -48,7 +48,7 @@ body, div, span, h2, a{
 	font-family: 'ProximaNova' !important;
 }
 body{
-	margin-top: -32px;
+	/*margin-top: -32px;*/
 	text-align: center;
 	overflow-x: hidden;
 }
@@ -58,32 +58,59 @@ body div.theme-page div.theme-page-content{
 	padding: 0px !important;
 	width: 100%;
 }
+html {
+	/* Prevent font scaling in landscape while allowing user zoom */
+    -webkit-text-size-adjust: 100%;
+    margin-top: 0px !important;
+}
+
+/* Commmon */
+div#product,
+div#contact,
+div#slider,
 div.pb-space-line{
-	display: none;
+	height: 0px;
+}
+.theme-blog-pagination-box,
+.theme-comment-pagination-box{
+	margin-top: 0px;
 }
 
 /* Menu */
+div#wpadminbar{
+	/*display: none;*/
+}
 div.pb-menu.pb{
 	background-color: #000000;
-	opacity: 0.4;
+	opacity: 0.6;
 	top: 0px;
 	width: 100%;
+	/*height: 100px; Desktop only */
 }
 div.pb-menu.pb.pb-menu-sticky{
 	background-color: #3c3c3c;
-	height: 100px;
+	height: 103px;
 	opacity: 1;
 }
 div.pb-menu.pb > div{
-	margin: 15px 0px;
+	margin: 0px 0px;
 	width: 100%;
+	height: 100%;
+}
+div.pb-menu.pb > div ul,
+div.pb-menu.pb > div ul li{
+	height: 100%;
 }
 div.pb-menu.pb div.pb-logo{
-	margin: 13px 120px 0px;
+	margin: auto;
+	padding-top: 26px;
 }
 div.pb-menu.pb div.pb-menu-default{
 	margin-right: 120px;
+	opacity: 1;
 }
+div.pb-menu.pb a,
+div.pb-menu.pb a:visited,
 div.pb-menu.pb ul li,
 div.pb-menu.pb ul li:hover,
 div.pb-menu.pb ul li:visited,
@@ -116,7 +143,12 @@ div.scrolling-mouse a{
 	height: 48px;
 	display: block;
 }
-
+div.tp-leftarrow{
+	background: url('images/arrow-left.png') no-repeat center center !important;
+}
+div.tp-rightarrow{
+	background: url('images/arrow-right.png') no-repeat center center !important;	
+}
 /* Decor */
 div.decor{
 	padding-top: 70px;
@@ -130,9 +162,10 @@ div.footer ul li div.pb-text{
 }
 div.pb-header-subheader {
 	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-bottom: 0px;
 }
-div.decor div.pb-header-subheader h2.pb-header span{
+div.decor div.pb-header-subheader h2.pb-header span,
+div.footer div.pb-header-subheader h2.pb-header span{
 	color: #3c3c3c;
 	font-size: 68px;
 }
@@ -155,40 +188,19 @@ div.pb-text{
 div.products > ul{
 	margin-left: 0px !important;
 	margin-right: 0px !important;
-	margin-bottom: 150px !important;
+	padding-bottom: 150px !important;
 	width: 100% !important;
-}
-div.product:hover div.product-overlay{
-  text-align: center;
-  color: white;
-  height: auto;
-  padding: 50px;
-  opacity: 1 !important;
 }
 div.product-overlay{
   opacity: 0;
 }
-div.overlay{
-  background-color: #efc106;
+div.product div.overlay{
+  background-color: #a58402;
+  /*background-color: #efc106;*/
   opacity:0;
   transition: opacity 2s;
   text-align: center;
   position: relative;
-}
-div.product:hover div.overlay{
-  opacity: 0.85;
-}
-div.border-overlay:after{
-  padding: 0px;
-  content: '';
-  transition: all 3s linear;
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  right: 20px;
-  bottom: 20px;
-  /* height: 100%; */
-  /* width: 100%; */
 }
 div.w:after{
   transform: scaleX(0);
@@ -200,12 +212,6 @@ div.h:after{
   border-left: 1px solid white;
   border-right: 1px solid white;
 }
-div.product:hover div.w:after{
-  transform: scaleX(1);
-}
-div.product:hover div.h:after{
-  transform: scaleY(1);
-}
 div.product-overlay hr{width:50%}
 div.product{
   	display: flex;              /* establish flex container */
@@ -216,6 +222,7 @@ div.product{
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     margin-bottom: 20px;
+    width: 100% !important;
 }
 div.product-overlay h2{
 	font-size: 28px;
@@ -255,14 +262,70 @@ div.pb-text p{
 div.pb-text div.icon-social img{
 	padding: 0px 15px 90px 15px;
 }
+div.footer-more ul{
+	width: 100% !important;
+}
 div.footer-more hr{
 	margin-top: -100px;
 	color: #3c3c3c;
 	opacity: 0.2;
 }
 
+/* For Desktop */
+@media screen and (min-width: 900px){
+	div.pb-menu.pb div.pb-logo{
+		padding-left: 130px;
+		padding-top: 26px;
+	}
+	div.pb-menu.pb{
+		height: 100%;
+	}
+	div.pb-menu.pb > div ul li a{
+		padding: 37px 10px !important;
+	}
+	body.admin-bar .pb-menu.pb-menu-sticky{
+		top: 0px !important;
+	}
+
+	/* Product effect on Desktop only */
+	div.product:hover div.product-overlay{
+	  text-align: center;
+	  color: white;
+	  height: auto;
+	  padding: 50px;
+	  opacity: 1 !important;
+	}
+	div.product:hover div.overlay{
+	  opacity: 0.85;
+	}
+	div.border-overlay:after{
+	  padding: 0px;
+	  content: '';
+	  transition: all 1.5s linear;
+	  position: absolute;
+	  left: 20px;
+	  top: 20px;
+	  right: 20px;
+	  bottom: 20px;
+	  /* height: 100%; */
+	  /* width: 100%; */
+	}
+	div.product:hover div.w:after{
+	  transform: scaleX(1);
+	}
+	div.product:hover div.h:after{
+	  transform: scaleY(1);
+	}
+	/* Product effect on Desktop only */
+
+}
+
 /* For Mobile */
 @media screen and (max-width: 900px){
+	div.pb-header-subheader{
+		margin-top: 35px;
+		margin-bottom: 0px;
+	}
 	div.decor ul li div.pb-text,
 	div.footer ul li div.pb-text{
 		width: 85%;
@@ -270,35 +333,87 @@ div.footer-more hr{
 	div.pb-text div.icon-social img{
 		padding: 0px 8px 50px 8px;
 	}
-	div.products{
-		padding-left: 5px !important;
-		padding-right: 5px !important;
-	}
 	body div.theme-page div.theme-page-content{
 		margin-top: 0px;
-	}
-	div.pb-menu.pb{
-		opacity: 1;
-	}
-	div.pb-menu.pb > div.pb-main{
-		margin: 0px;
 	}
 	div.decor{
 		padding-top: 20px;
 		padding-bottom: 30px;
 	}
-	div#product,
-	div#contact{
-		height: 0px;
+	div.products{
+		text-align: center;
+		padding-left: 5px !important;
+		padding-right: 5px !important;
 	}
 	div.products > ul{
 		margin-bottom: 30px !important;
 	}
-	div.pb-header-subheader{
-		margin-top: 35px;
-		margin-bottom: 20px;
+	div.products > ul li{
+		margin-bottom: 0px !important;
+	}
+	div.products > ul div.overlay{
+		height: auto;
+	}
+	div.product{
+		width: 85% !important;
+		margin: auto;
+		height: 100% !important;
+		background-size: contain !important;
+	}
+	div.products ul li div.pb-text{
+		padding: 10px;
+	}
+	div.scrolling-mouse
+	{
+		display: none;
 	}
 	div.footer{
 		padding-top: 20px;
+	}
+	div.footer div.pb-text div.strong{
+		font-size: 24px;
+	}
+
+	/* Menu */
+	#click-menu.admin-bar-showing{
+		width: 100% !important;
+		margin-top: 79px !important;
+	}
+	#click-menu-label.click-menu-label-left{
+		width: 85% !important;
+		font-size: 30px;
+		line-height: 30px !important;
+	}
+	div.pb-menu.pb{
+		opacity: 1;
+	}
+	div.pb-menu.pb div.pb-menu-responsive{
+		display: none !important;
+	}
+	div.pb-menu.pb > div.pb-main{
+		margin: 0px;
+	}
+	div.pb-menu.pb div.pb-logo a{
+		pointer-events: none;
+	}
+	div.theme-page{
+		margin-top: 43px !important;
+	}
+	div#responsive-menu{
+		width: 50% !important;
+		height: 150px !important;
+		border-radius: 30px;
+		margin-top: 132px !important;
+		padding-top: 0px !important;
+		left: 50% !important;
+	}
+	div#responsive-menu ul > li.menu-item{
+		background-image: none !important;
+		padding-right: 15% !important;
+	}
+	div#responsive-menu ul.responsive-menu > li a{
+		font-size: 20px !important;
+		width: auto !important;
+		margin-right: 15px;
 	}
 }

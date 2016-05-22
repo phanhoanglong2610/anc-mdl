@@ -262,27 +262,32 @@ jQuery(document).ready(function($)
 	catch(e) {}
 	
 	/**************************************************************************/
-	$('.pb-menu ul li.menu-item a, div.scrolling-mouse a').on('click', function(e){
+	$('#responsive-menu .responsive-menu li a, .pb-menu ul li.menu-item a, div.scrolling-mouse a').on('click', function(e){
 	    e.preventDefault();
 	    var ele = this.href.split('#')[1];
 	    var target = $('#' + ele);
 	    var top = 30;
+	    var t = 2000;
 	    if (ele == 'decor'){
 	    	top = 170;
+	    	t = 1000;
 	    }
 	    $('html, body').stop().animate({
 	       scrollTop: target.offset().top - top
-	    }, 3000);
+	    }, t);
 	    $('.pb-menu ul li.menu-item a').each(function(e){
 	    	this.style.color = '#fff';
+    		this.parentElement.style.borderBottom = '0px solid transparent';
 	    })
 	    if (ele == 'decor'){
 	    	$(".pb-menu ul li.menu-item a[href$='decor']").each(function(e){
 	    		this.style.color = '#efc106';
+		    	this.parentElement.style.borderBottom = '3px solid #efc106';
 	    	});
 	    }
 	    else{
 	    	this.style.color = '#efc106';
+	    	this.parentElement.style.borderBottom = '3px solid #efc106';
 	    }
 	});
 
