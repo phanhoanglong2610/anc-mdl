@@ -262,15 +262,22 @@ jQuery(document).ready(function($)
 	catch(e) {}
 	
 	/**************************************************************************/
-	$('#responsive-menu .responsive-menu li a, .pb-menu ul li.menu-item a, div.scrolling-mouse a').on('click', function(e){
+	$('.pb-menu ul li.menu-item a, div.scrolling-mouse').on('click', function(e){
 	    e.preventDefault();
-	    var ele = this.href.split('#')[1];
+	    var ele = "decor";
+	    if (this.href){
+	    	ele = this.href.split('#')[1];
+	    }
 	    var target = $('#' + ele);
 	    var top = 30;
 	    var t = 2000;
 	    if (ele == 'decor'){
 	    	top = 170;
 	    	t = 1000;
+	    }
+	    else if (ele == 'contact'){
+	    	top = 150;
+	    	t = 1500;
 	    }
 	    $('html, body').stop().animate({
 	       scrollTop: target.offset().top - top
@@ -291,7 +298,44 @@ jQuery(document).ready(function($)
 	    }
 	});
 
+	$("div#responsive-menu > div > ul.responsive-menu > li.menu-item > a").on('click', function(e){
+		e.preventDefault();
+		var ele = this.href.split('#')[1];
+		var target = $('#' + ele);
+	    var top = 30;
+	    var t = 2000;
+	    if (ele == 'decor'){
+	    	top = 170;
+	    	t = 1000;
+	    }
+	    else if (ele == 'contact'){
+	    	top = -50;
+	    	t = 1500;
+	    }
+	    $('html, body').stop().animate({
+	       scrollTop: target.offset().top - top
+	    }, t);
+	    $('div#responsive-menu > div > ul.responsive-menu > li.menu-item > a').each(function(e){
+	    	var current_ele = this.href.split('#')[1];
+	    	if (current_ele == ele){
+	    		this.style.setProperty ("color", "white", "important");
+	    		this.parentElement.style.backgroundColor = '#efc106';
+			}
+			else{
+		    	this.style.setProperty ("color", "#3c3c3c", "important");
+	    		this.parentElement.style.backgroundColor = '#f9f9f9';
+	    	}
+	    });
+	});
 
+	jQuery(document).ready( function($) {
+		// Desktop
+	   	var first_menu = $("a[href='#product']")[0];
+	   	if (first_menu){
+			first_menu.style.color = '#efc106';
+			first_menu.parentElement.style.borderBottom = '3px solid #efc106';
+		}
+	});
 
 });
 
